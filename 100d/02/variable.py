@@ -28,7 +28,7 @@ def integer():
   print(a // b)
   print(a ** b) # a的b次方
 
-integer()
+#integer()
 
 # 2. 变量命名规则
 #   字母(包括unicode字符，特殊字符除外)，数字，下划线组成，但是首字母不能是数字，
@@ -62,7 +62,7 @@ def typed():
   print(type(d))
   print(type(e))
 
-typed()
+#typed()
 
 # 5. 类型转换
 #   - int() 可以将数值或者字符串转换为数字，可以指定进制。
@@ -128,18 +128,21 @@ def ord_cast():
   a = 'A'
   print(ord(a))
 
-int_cast()
-float_cast()
-str_cast()
-chr_cast()
-ord_cast()
+#int_cast()
+#float_cast()
+#str_cast()
+#chr_cast()
+#ord_cast()
 
 # 6. 变量运算
 
 def var_op():
+  # input获取标准输入，作为字符串返回。
   a = int(input('a = '))
   b = int(input('b = '))
 
+  # print的打印，可以使用占位符%<char>字符串，后面跟着一个百分号(%)，在后面跟一个元组，元组内容和字符串占位符对应。
+  #   这时就会打印字符串，对应的占位符将自动替换为元组内的各个值。
   print('%d + %d = %d' % (a, b, a + b))
   print('%d - %d = %d' % (a, b, a - b))
   print('%d * %d = %d' % (a, b, a * b))
@@ -148,4 +151,43 @@ def var_op():
   print('%d %% %d = %d' % (a, b, a % b))
   print('%d ** %d = %d' % (a, b, a ** b))
 
-var_op()
+#var_op()
+
+# 7. 运算符优先级，这个没必要去记忆，如果不清楚，可以用括号。
+#   - 需要注意有几个运算符比较特殊，c/c++没有的
+#     - 切片: [:]
+#     - 按位取反: ~
+#     - 指数: **
+#     - 整除: //
+#     - 身份运算符: is, is not
+#     - 成员运算符: in, not in
+#     - 逻辑运算符: and or not
+#     - 组合运算符: +=, -=, *=, /=, //=, **=, ^=, &=, >>=, <<=等。需要注意的是: //=, **=, ^=
+# 
+
+def operator():
+  a = 10
+  b = 3
+  a += b # a = a + b 注意python中没有自增与自减运算符。
+  a *= a +2 # a = a * (a + 2) 注意这个的优先级
+  print(a)
+
+#operator()
+
+def operator2():
+  flag0 = 1 == 1
+  flag1 = 3 > 2
+  flag2 = 2 < 1
+  flag3 = flag1 and flag2
+  flag4 = flag1 or flag2
+  flag5 = not (1 != 2)
+  print('flag0 = ', flag0)
+  print('flag1 = ', flag1)
+  print('flag2 = ', flag2)
+  print('flag3 = ', flag3)
+  print('flag4 = ', flag4)
+  print('flag5 = ', flag5)
+  print(flag1 is True)
+  print(flag2 is not False)
+
+operator2()
